@@ -15,6 +15,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import static org.springframework.http.HttpMethod.*;
+
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -35,7 +37,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.authorizeRequests().antMatchers("/login","/api/v1/user/token/refresh/**").permitAll();
-        //http.authorizeRequests().antMatchers(GET, "")
+        http.authorizeRequests().antMatchers(POST,"/api/v1/user").permitAll();
+        http.authorizeRequests().antMatchers(GET,"/api/v1/user").hasAnyAuthority("ROLE_ADMIN");
+        http.authorizeRequests().antMatchers(PATCH,"/api/v1/user/update/name/**").hasAnyAuthority("ROLE_STUDENT");
+        http.authorizeRequests().antMatchers(PATCH,"/api/v1/user/approve/**").hasAnyAuthority("ROLE_ADMIN");
         http.authorizeRequests().antMatchers("/swagger-ui/**/**","/api-docs").permitAll();
         //http.authorizeRequests().anyRequest().permitAll();
         http.authorizeRequests().anyRequest().authenticated();

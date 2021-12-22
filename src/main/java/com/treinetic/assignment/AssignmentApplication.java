@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +47,7 @@ public class AssignmentApplication {
 
 			//userRepository.delete(userRepository.findByUsername("admin@treinetic.com").get());
 
+			//admin
 			if (!userRepository.findByUsername("admin@treinetic.com").isPresent()){
 				List<Role> roles= new ArrayList<>();
 				roles.add(roleRepository.findRoleByName("Admin").get());
@@ -58,11 +60,31 @@ public class AssignmentApplication {
 						true,
 						true,
 						passwordEncoder().encode("iAmAdmin"),
-						null,
+						LocalDate.now(),
 						null,
 						roles
 				);
 				userRepository.save(user);
+			}
+
+			//student
+			if (!userRepository.findByUsername("madusha@test.com").isPresent()){
+				List<Role> roles= new ArrayList<>();
+				roles.add(roleRepository.findRoleByName("Student").get());
+				User madusha = new User(
+						null,
+						"Madusha",
+						"Mihiranga",
+						"madusha@test.com",
+						"0770000000",
+						false,
+						false,
+						passwordEncoder().encode("madusha@test.com"),
+						LocalDate.now(),
+						null,
+						roles
+				);
+				userRepository.save(madusha);
 			}
 
 
