@@ -1,6 +1,6 @@
-package com.treinetic.assignment.repository;
+package com.treinetic.assignment.user.repository;
 
-import com.treinetic.assignment.entity.Role;
+import com.treinetic.assignment.user.entity.Role;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;

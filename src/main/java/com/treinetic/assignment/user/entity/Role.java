@@ -1,4 +1,4 @@
-package com.treinetic.assignment.entity;
+package com.treinetic.assignment.user.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

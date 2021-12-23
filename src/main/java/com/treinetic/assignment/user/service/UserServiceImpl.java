@@ -1,14 +1,13 @@
-package com.treinetic.assignment.service;
+package com.treinetic.assignment.user.service;
 
-import com.treinetic.assignment.dto.StudentDTO;
-import com.treinetic.assignment.entity.Role;
-import com.treinetic.assignment.entity.User;
+import com.treinetic.assignment.user.dto.StudentDTO;
+import com.treinetic.assignment.user.entity.Role;
+import com.treinetic.assignment.user.entity.User;
 import com.treinetic.assignment.message.CustomMessage;
 import com.treinetic.assignment.message.EmailDTO;
 import com.treinetic.assignment.message.MessageService;
-import com.treinetic.assignment.repository.RoleRepository;
-import com.treinetic.assignment.repository.UserRepository;
-import lombok.AllArgsConstructor;
+import com.treinetic.assignment.user.repository.RoleRepository;
+import com.treinetic.assignment.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -112,6 +111,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
                 user.get().getEmail(),user.get().getPassword(),authorities
         );
     }
+
+
 
 
 }

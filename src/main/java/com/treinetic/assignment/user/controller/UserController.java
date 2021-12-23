@@ -1,25 +1,21 @@
-package com.treinetic.assignment.controller;
+package com.treinetic.assignment.user.controller;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.treinetic.assignment.dto.StudentDTO;
-import com.treinetic.assignment.entity.Role;
-import com.treinetic.assignment.entity.User;
-import com.treinetic.assignment.service.RoleService;
-import com.treinetic.assignment.service.UserService;
+import com.treinetic.assignment.user.dto.StudentDTO;
+import com.treinetic.assignment.user.entity.Role;
+import com.treinetic.assignment.user.entity.User;
+import com.treinetic.assignment.user.service.RoleService;
+import com.treinetic.assignment.user.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;

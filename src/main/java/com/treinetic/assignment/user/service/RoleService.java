@@ -1,7 +1,7 @@
-package com.treinetic.assignment.service;
+package com.treinetic.assignment.user.service;
 
-import com.treinetic.assignment.entity.Role;
-import com.treinetic.assignment.repository.RoleRepository;
+import com.treinetic.assignment.user.entity.Role;
+import com.treinetic.assignment.user.repository.RoleRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

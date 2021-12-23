@@ -1,4 +1,4 @@
-package com.treinetic.assignment.dto;
+package com.treinetic.assignment.user.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

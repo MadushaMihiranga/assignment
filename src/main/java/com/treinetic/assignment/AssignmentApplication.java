@@ -1,14 +1,13 @@
 package com.treinetic.assignment;
 
-import com.treinetic.assignment.entity.Role;
-import com.treinetic.assignment.entity.User;
-import com.treinetic.assignment.repository.RoleRepository;
-import com.treinetic.assignment.repository.UserRepository;
+import com.treinetic.assignment.user.entity.Role;
+import com.treinetic.assignment.user.entity.User;
+import com.treinetic.assignment.user.repository.RoleRepository;
+import com.treinetic.assignment.user.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 

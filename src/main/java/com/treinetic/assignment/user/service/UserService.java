@@ -1,10 +1,9 @@
-package com.treinetic.assignment.service;
+package com.treinetic.assignment.user.service;
 
-import com.treinetic.assignment.dto.StudentDTO;
+import com.treinetic.assignment.user.dto.StudentDTO;
 
-import com.treinetic.assignment.entity.User;
+import com.treinetic.assignment.user.entity.User;
 import org.springframework.data.domain.Page;
-import org.springframework.stereotype.Service;
 
 
 public interface UserService {

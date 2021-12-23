@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MessageController {
 
-    private final MessageService messageService;
+ /*   private final MessageService messageService;
 
     @PostMapping("/publish")
     public ResponseEntity<?> publish(@RequestBody CustomMessage message){
@@ -24,6 +24,6 @@ public class MessageController {
             return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+*/
 
 }

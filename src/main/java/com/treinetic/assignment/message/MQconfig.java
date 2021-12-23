@@ -15,8 +15,7 @@ public class MQconfig {
     public static final String EXCHANGE = "message_exchange";
     public static final String ROUTING_KEY = "message_routingKey";
 
-
-    @Bean
+    /*@Bean
     public Queue queue(){
         return new Queue(QUEUE);
     }
@@ -29,7 +28,7 @@ public class MQconfig {
     @Bean
     public Binding binding(Queue queue,TopicExchange topicExchange){
         return BindingBuilder.bind(queue).to(topicExchange).with(ROUTING_KEY);
-    }
+    }*/
 
     @Bean
     public MessageConverter messageConverter(){
