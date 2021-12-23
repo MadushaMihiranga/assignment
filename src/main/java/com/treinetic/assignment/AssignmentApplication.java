@@ -87,15 +87,6 @@ public class AssignmentApplication {
 				userRepository.save(madusha);
 			}
 
-
-			/*Student student = new Student(
-					"Madusha",
-					"Mihiranga",
-					"madushamihiranga@outlook.com",
-					"0769863333",
-					false
-			);
-			repository.insert(student);*/
 		};
 	}
 

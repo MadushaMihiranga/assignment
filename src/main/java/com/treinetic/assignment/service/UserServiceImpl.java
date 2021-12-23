@@ -3,6 +3,9 @@ package com.treinetic.assignment.service;
 import com.treinetic.assignment.dto.StudentDTO;
 import com.treinetic.assignment.entity.Role;
 import com.treinetic.assignment.entity.User;
+import com.treinetic.assignment.message.CustomMessage;
+import com.treinetic.assignment.message.EmailDTO;
+import com.treinetic.assignment.message.MessageService;
 import com.treinetic.assignment.repository.RoleRepository;
 import com.treinetic.assignment.repository.UserRepository;
 import lombok.AllArgsConstructor;
@@ -33,6 +36,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
+    private final MessageService messageService;
 
     @Override
     public User getUser(String username){
@@ -81,12 +85,20 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         if (oldUser.isPresent()){
             User user = oldUser.get();
             user.setApproved(true);
-            return userRepository.save(user);
+            User user1 = userRepository.save(user);
+            EmailDTO emailDTO = new EmailDTO(
+                    user.getEmail(),
+                    "Account is approved",
+                    "Dear "+user.getFirstname()+"\nYour Account is approved");
+            CustomMessage message = new CustomMessage(null,emailDTO,null);
+            messageService.publishMessage(message);
+            return user1;
         }else {
             return null;
         }
     }
 
+    // UserDetailsService
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> user = userRepository.findByUsername(username);
@@ -94,10 +106,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
             log.error("User Not found in the database");
             throw new UsernameNotFoundException("User Not found in the database");
         }
-
         Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
         user.get().getRoles().forEach( role -> { authorities.add(new SimpleGrantedAuthority(role.getName()));} );
-
         return new org.springframework.security.core.userdetails.User(
                 user.get().getEmail(),user.get().getPassword(),authorities
         );

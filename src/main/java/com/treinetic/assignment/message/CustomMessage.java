@@ -12,7 +12,7 @@ import java.util.Date;
 public class CustomMessage {
 
     private String messageId;
-    private String message;
+    private EmailDTO message;
     private Date messageDate;
 
 }
